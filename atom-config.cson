@@ -1,0 +1,31 @@
+"*":
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "seti-ui"
+      "seti-syntax"
+    ]
+  editor:
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "42bd2c75-15e9-46a3-814f-36e1029412a2"
+  "markdown-preview": {}
+  "seti-syntax":
+    dynamicColor: false
+    themeColor: "Steel"
+  "seti-ui":
+    themeColor: "Orange"
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "source.bibtex"
+      "text.tex.latex"
+    ]
+  welcome:
+    showOnStartup: false

@@ -1,0 +1,49 @@
+/* reduce annoying padding */
+atom-workspace:not(.seti-compact) atom-panel.footer.tool-panel {
+  padding: 0px;
+}
+atom-workspace-axis.vertical .tab-bar {
+  height: 40px;
+}
+atom-workspace-axis.vertical .tab-bar .tab {
+  height :40px;
+  line-height: 40px;
+}
+atom-workspace.seti-icons .tab-bar .tab .title::before {
+  line-height: 40px;
+}
+atom-workspace-axis.vertical .tab-bar .tab.modified:not(:hover) .close-icon {
+  top: 16px
+}
+atom-dock .list-inline.tab-bar {
+  height: 40px;
+}
+atom-dock .list-inline.tab-bar .tab {
+  height: 40px;
+  line-height: 40px;
+}
+atom-dock .list-inline.tab-bar .tab .title {
+  line-height: 40px;
+}
+atom-dock .list-inline.tab-bar .tab[data-type="TreeView"] .title::before {
+  height: 40px;
+  line-height: 40px;
+}
+
+/* style the platform-io-ide terminal */
+.platformio-ide-terminal.terminal-view .panel-divider {
+  height: 3px;
+  margin-top: 0px;
+}
+.platformio-ide-terminal.terminal-view .input-block {
+  padding: 0px;
+}
+.platformio-ide-terminal.terminal-view .input-block .btn-toolbar {
+  padding: 0px;
+}
+.btn {
+  height: 20px;
+  line-height: 17px;
+  padding: 0 5px;
+  background-color: #000000;
+}
