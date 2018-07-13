@@ -10,4 +10,4 @@ git clone https://github.com/trusktr/seti.vim ~/.vim/bundle/seti.vim
 # polygot language pack
 git clone https://github.com/sheerun/vim-polyglot.git ~/.vim/bundle/vim-polyglot.vim
 
-cp vim-config.conf ~/.vimrc
+cp vim-config.vim ~/.vimrc

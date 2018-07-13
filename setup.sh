@@ -43,6 +43,10 @@ fi
 ### vim
 ./vim-setup.sh
 
+### bash
+touch ~/.bashrc
+cat bash-config.sh >> ~/.bashrc
+
 # set installed flag and exit
 touch ~/.air-wreck-dotfiles-flag
 echo 'Finished with dotfiles installation.'
