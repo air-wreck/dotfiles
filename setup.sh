@@ -1,5 +1,6 @@
 #!/bin/sh
-# okay, I lied...this is mostly Debian-centric
+# this file contains miscellaneous setup stuff
+# you should comment/uncomment sections as appropriate
 
 # check if this system already has dotfiles
 if [ -f ~/.air-wreck-dotfiles-flag ]; then
@@ -23,30 +24,39 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ### marks it as wrong (I'm not sure if Atom+Vim respect this...)
 echo 'Zheng' | sudo tee --append /usr/share/dict/words > /dev/null
 
-### latex
-if ! [ -x "$(command -v latex)" ]; then
-  # is it safe to assume that latex == texlive-full?
-  echo "No latex detected. Installing now. This may take a while."
-  sudo apt-get install texlive-full
-fi
+### vim ###
+#
+# you likely do not need to manually install vim stuff because it's all
+# in this repository already, but just in case, you can uncomment this section
+#
+# # install pathogen for plugins
+# mkdir -p ~/.vim/autoload ~/.vim/bundle
+# curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+#
+# # seti theme
+# git clone https://github.com/trusktr/seti.vim ~/.vim/bundle/seti.vim
+#
+# # polygot language pack
+# git clone https://github.com/sheerun/vim-polyglot.git ~/.vim/bundle/vim-polyglot.vim
 
-### atom
-if ! [ -x "$(command -v atom)" ]; then
-  echo "No atom detected. Installing now."
-  wget https://atom.io/download/deb -O atom-amd64.deb
-  sudo dpkg -i atom-amd64.deb
-  sudo apt-get -f install
-  rm atom-amd64.deb
-fi
-./atom-setup.sh  # use separate file to reduce OS-specific stuff
+### tmux ###
+sudo apt-get install tmux
 
-### vim
-./vim-setup.sh
+### latex ###
+#
+# this is commented by default because installing LaTeX is not desirable
+# on many systems
+#
+# sudo apt-get install texlive-full
 
-### bash
-touch ~/.bashrc
-cat bash-config.sh >> ~/.bashrc
+### Debian packages ###
+#
+# this is a worst-case reinstall of every manually installed Debian package
+# that I have; it should probably not be run out-of-the-box
+#
+# sudo apt-get install $(grep -vE "^\s*#" manual-list | tr "\n" " ")
 
 # set installed flag and exit
 touch ~/.air-wreck-dotfiles-flag
 echo 'Finished with dotfiles installation.'
+

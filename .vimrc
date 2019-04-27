@@ -17,3 +17,4 @@ autocmd FileType make setlocal noexpandtab
 function Trim()
   %s/\s\+$//e
 endfunction
+
