@@ -38,6 +38,10 @@ echo 'Zheng' | sudo tee --append /usr/share/dict/words > /dev/null
 #
 # # polygot language pack
 # git clone https://github.com/sheerun/vim-polyglot.git ~/.vim/bundle/vim-polyglot.vim
+#
+# # pretty status bar
+# git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+# sudo apt-get install fonts-powerline
 
 ### tmux ###
 sudo apt-get install tmux
@@ -53,6 +57,7 @@ sudo apt-get install tmux
 #
 # this is a worst-case reinstall of every manually installed Debian package
 # that I have; it should probably not be run out-of-the-box
+# manual-list is just the output of `apt-mark showmanual`
 #
 # sudo apt-get install $(grep -vE "^\s*#" manual-list | tr "\n" " ")
 

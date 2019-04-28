@@ -1,8 +1,3 @@
-# this file contains the output of `apt-mark showmanual` on my personal latop
-# as of 2019-04-26; a lot of these aren't really manually installed
-# this should act as a good reference in a worst-case scenario if I need to
-# rebuild my system
-
 adduser
 apt
 apt-listchanges
@@ -58,6 +53,7 @@ exfat-utils
 file
 findutils
 firmware-realtek
+fonts-powerline
 freecad
 fuse
 gcc-6-base
@@ -289,6 +285,7 @@ wget
 whiptail
 wine
 wine32:i386
+wolframscript
 xautomation
 xbindkeys
 xclip
