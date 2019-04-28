@@ -111,8 +111,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export VISUAL=vim
-export EDITOR="$VISUAL"
 
 # added by Anaconda3 2018.12 installer
 # >>> conda init >>>
@@ -130,3 +128,14 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+
+
+######## finally, the custom lines ########
+
+# pretty prompt
+PS1="${debian_chroot:+($debian_chroot)}\[\e[2;97m\]\[\e[1;100m\][\[\e[m\]\[\e[1;100m\]\[\e[1;93m\]\u@\h \[\e[2;36m\]\W\[\e[2;97m\]]\[\e[m\]\[\e[1;97m\]$\[\e[m\] "
+
+# set Vim as default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
