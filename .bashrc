@@ -133,7 +133,7 @@ unset __conda_setup
 ######## finally, the custom lines ########
 
 # pretty prompt
-PS1="${debian_chroot:+($debian_chroot)}\[\e[2;97m\]\[\e[1;100m\][\[\e[m\]\[\e[1;100m\]\[\e[1;93m\]\u@\h \[\e[2;36m\]\W\[\e[2;97m\]]\[\e[m\]\[\e[1;97m\]$\[\e[m\] "
+PS1="${debian_chroot:+($debian_chroot)}\[\e[2;97m\]\[\e[1;100m\][\[\e[m\]\[\e[1;100m\]\[\e[1;93m\]\u@\h\[\e[1;90m\] \[\e[2;36m\]\W\[\e[2;97m\]]\[\e[m\]\[\e[1;97m\]$\[\e[m\] "
 
 # set Vim as default editor
 export VISUAL=vim

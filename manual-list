@@ -6,6 +6,8 @@ apt-utils
 arduino
 atom
 audacity
+avr-libc
+avrdude
 base-files
 base-passwd
 bash
@@ -57,6 +59,7 @@ fonts-powerline
 freecad
 fuse
 gcc-6-base
+gcc-avr
 gcc-multilib
 gconf-service
 gconf2
