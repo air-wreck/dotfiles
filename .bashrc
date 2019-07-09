@@ -147,3 +147,6 @@ if [ -n "$DISPLAY" ]; then
   xset b off
 fi
 
+# update gpg-agent
+export GPG_TTY=$(tty)
+

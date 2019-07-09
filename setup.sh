@@ -27,6 +27,10 @@ echo 'Zheng' | sudo tee --append /usr/share/dict/words > /dev/null
 ### disable the annoying bell
 sudo sed -i 's/# set bell-style none/set bell-style none/' /etc/inputrc
 
+### set GPG et al. to use non-GUI passphrase entry
+### on a fresh system, may need do first install pinentry-tty
+sudo update-alternatives --config pinentry
+
 ### vim ###
 #
 # you likely do not need to manually install vim stuff because it's all
