@@ -24,6 +24,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ### marks it as wrong (I'm not sure if Atom+Vim respect this...)
 echo 'Zheng' | sudo tee --append /usr/share/dict/words > /dev/null
 
+### disable the annoying bell
+sudo sed -i 's/# set bell-style none/set bell-style none/' /etc/inputrc
+
 ### vim ###
 #
 # you likely do not need to manually install vim stuff because it's all

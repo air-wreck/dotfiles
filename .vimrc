@@ -1,3 +1,4 @@
+" basic settings
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -7,6 +8,7 @@ set shiftwidth=2
 set softtabstop=2
 set spelllang=en
 set encoding=utf-8
+set visualbell  " really only matters in non-GUI environments
 colorscheme seti
 
 " language-specific settings

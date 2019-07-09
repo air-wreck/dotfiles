@@ -139,3 +139,11 @@ PS1="${debian_chroot:+($debian_chroot)}\[\e[2;97m\]\[\e[1;100m\][\[\e[m\]\[\e[1;
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# fix tmux colors in tty3, etc.
+alias tmux='tmux -2'
+
+# disable bell in Xorg
+if [ -n "$DISPLAY" ]; then
+  xset b off
+fi
+
