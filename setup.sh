@@ -40,15 +40,9 @@ sudo update-alternatives --config pinentry
 # mkdir -p ~/.vim/autoload ~/.vim/bundle
 # curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 #
-# # seti theme
-# git clone https://github.com/trusktr/seti.vim ~/.vim/bundle/seti.vim
-#
-# # polygot language pack
-# git clone https://github.com/sheerun/vim-polyglot.git ~/.vim/bundle/vim-polyglot.vim
-#
-# # pretty status bar
-# git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
-# sudo apt-get install fonts-powerline
+# # install vim bundles (if you did not clone with --recuse-submodules)
+# git submodule init
+# git submodule update
 
 ### tmux ###
 sudo apt-get install tmux
