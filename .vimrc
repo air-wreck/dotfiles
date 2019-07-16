@@ -9,6 +9,7 @@ set softtabstop=2
 set spelllang=en
 set encoding=utf-8
 set visualbell  " really only matters in non-GUI environments
+set ttimeoutlen=100
 colorscheme seti
 
 " language-specific settings
