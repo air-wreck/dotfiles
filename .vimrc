@@ -10,6 +10,7 @@ set spelllang=en
 set encoding=utf-8
 set visualbell  " really only matters in non-GUI environments
 set ttimeoutlen=100
+set wildmode=longest,list  " better tab completion
 colorscheme seti
 
 " language-specific settings
@@ -28,7 +29,9 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+" let g:airline_symbols.linenr = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ' '
 
 " utility functions
 function Trim()

@@ -10,3 +10,15 @@
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule ".vim/bundle/vim-css-color"]
+	path = .vim/bundle/vim-css-color
+	url = git@github.com:skammer/vim-css-color.git
+[submodule "vimwiki"]
+	path = vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+[submodule ".vim/bundle/vimwiki"]
+	path = .vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+[submodule ".vim/bundle/nord-vim"]
+	path = .vim/bundle/nord-vim
+	url = git@github.com:arcticicestudio/nord-vim.git

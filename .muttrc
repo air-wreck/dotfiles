@@ -1,0 +1,28 @@
+# account folder hooks
+folder-hook "account.andrew" "source ~/.mutt/account.andrew"
+folder-hook "account.personal" "source ~/.mutt/account.personal"
+folder-hook "account.fastmail" "source ~/.mutt/account.fastmail"
+
+# macros for changing accounts
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.andrew<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.personal<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.fastmail<enter><change-folder>!<enter>'
+
+macro index <f5> '<next-unread>'
+
+# default account
+source ~/.mutt/account.andrew
+
+# shared configuration
+set ssl_force_tls = yes
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 10
+set sort = "reverse-threads"
+set sort_aux = "date-received"
+set copy = no
+set text_flowed = yes
+auto_view text/html
+
+alias klaus sutner@cs.cmu.edu
+alias mark mjs@cs.cmu.edu
