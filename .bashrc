@@ -1,143 +1,76 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-# added by Anaconda3 2018.12 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/eric/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "/home/eric/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/eric/anaconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="/home/eric/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
-
-
 ######## finally, the custom lines ########
 
 # pretty prompt
-PS1="${debian_chroot:+($debian_chroot)}\[\e[2;97m\]\[\e[1;100m\][\[\e[m\]\[\e[1;100m\]\[\e[1;93m\]\u@\h\[\e[1;90m\] \[\e[2;36m\]\W\[\e[2;97m\]]\[\e[m\]\[\e[1;97m\]$\[\e[m\] "
+PROMPT_COMMAND=__prompt_command
+__prompt_command() {
+
+  local EXIT="$?"
+  PS1=""
+
+  local Clear='\[\e[0m\]'
+  local Bold='\[\e[1m\]'
+  local BlackFG='\[\e[30m\]'
+  local BlackBG='\[\e[40m\]'
+  local RedFG='\[\e[31m\]'
+  local RedBG='\[\e[41m\]'
+  local GreenFG='\[\e[32m\]'
+  local GreenBG='\[\e[42m\]'
+  local MagentaFG='\[\e[35m\]'
+  local MagentaBG='\[\e[45m\]'
+  local CyanFG='\[\e[36m\]'
+  local CyanBG='\[\e[46m\]'
+  local WhiteFG='\[\e[37m\]'
+  local WhiteBG='\[\e[47m\]'
+  local GrayFG='\[\e[90m\]'
+  local GrayBG='\[\e[100m\]'
+  local BYellowFG='\[\e[93m\]'
+  local BYellowBG='\[\e[103m\]'
+  local BWhiteFG='\[\e[97m\]'
+  local BWhiteBG='\[\e[107m\]'
+
+  if [ $TERM == "linux" ]
+  then
+    # I don't have Powerline patched fonts for Linux tty
+    # e.g. "[eric@eric-debian ~]$ "
+    PS1="${debian_chroot:+($debian_chroot)}\[\e[2;97m\]\[\e[1;100m\][\[\e[m\]\[\e[1;100m\]\[\e[1;93m\]\u@\h\[\e[1;90m\] \[\e[2;36m\]\W\[\e[2;97m\]]\[\e[m\]\[\e[1;90m\]$\[\e[m\] "
+  else
+    # return status of previous command
+    if [ $EXIT != 0 ]
+    then
+      PS1+="$Clear$WhiteFG$RedBG $(printf '%3s' $EXIT) $Clear"
+      PS1+="$RedFG$GrayBG"
+    else
+      PS1+="$Clear$BlackFG$GreenBG $(printf '%3s' $EXIT) $Clear"
+      PS1+="$GreenFG$GrayBG"
+    fi
+
+    # user and machine name
+    # PS1+="$Bold$GrayBG$BYellowFG \u@\h $Clear$BlackFG$GrayBG"
+    PS1+="$Bold$GrayBG$BYellowFG \u@\h $Clear$GrayFG$CyanBG"
+
+    # working directory
+    # PS1+="$Bold$CyanFG$GrayBG \W $Clear$GrayFG $Clear"
+    PS1+="$Bold$GrayFG$CyanBG \W "
+
+    # branch (if in git repository)
+    if git rev-parse --git-dir 2> /dev/null > /dev/null ;
+    then
+      local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+      PS1+="$CyanFG$MagentaBG$BlackFG  $branch $Clear$MagentaFG $Clear"
+    else
+      PS1+="$Clear$CyanFG $Clear"
+    fi
+
+    PS2="$GrayBG ... $Clear$GrayFG $Clear"
+
+    # PS1+="${debian_chroot:+($debian_chroot)}\[\e[2;97m\]\[\e[1;100m\]\t\[\e[2;97m\] \[\e[2;97m\] \[\e[1;100m\]\[\e[m\]\[\e[1;100m\]\[\e[1;93m\]\u@\h\[\e[2;97m\]  \[\e[2;36m\]\W\[\e[2;97m\] \[\e[m\]\[\e[1;90m\]\[\e[m\] "
+  fi
+}
 
 # set Vim as default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export SUDO_EITOR="$EDITOR"
 
 # fix tmux colors in tty3, etc.
 alias tmux='tmux -2'
@@ -150,3 +83,50 @@ fi
 # update gpg-agent
 export GPG_TTY=$(tty)
 
+# comment here because I'm going to forget this command soon:
+# keybase ctl stop
+
+# I'm also going to forget this soon
+# gsettings set org.gnome.desktop.wm.preferences workspace-names "['first workspace name', 'second workspace name', 'third workspace name']"
+
+# here's a workaround to prevent laptop from continually waking
+# immediately after suspending, by disallowing USB to wake:
+# sudo su
+# echo XHC > /proc/acpi/wakeup
+
+# if bluetooth headphones have terrible quality, change to A2DP in
+# settings
+
+# uh, panel clock keeps on resetting, but here's my preferred time
+# format string:
+# %A, %b %e, %Y / %H:%M
+
+# turn off x screensaver
+# xset s off
+# xset s noblank
+# (xset q) for help
+
+# custom scripts
+export PATH="/home/eric/scripts:$PATH"
+
+# Kazam recordings need post-processing before most applications will
+# view them (although VLC seems to work fine)
+# ffmpeg -i in.mp4 -pix_fmt yuv420p -c:a copy -movflags +faststart out.mp4
+
+# color for manpages, taken from serverfault
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# I forget this frequently enough that is worth it
+alias pdfmerge='gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=out.pdf'
+alias rasterize='convert -density 300 -antialias'
+
+alias sml='rlwrap sml'
+alias ocaml='rlwrap ocaml'
+. "$HOME/.cargo/env"
+eval $(opam config env)
