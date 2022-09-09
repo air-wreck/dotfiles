@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Removes a '+' from the start of each line of text on the system
+# clipboard. The inspiration for this was the way Mutt displays links in
+# HTML email using Lynx; running strip-link allows links to be easily
+# pasted into a browser.
+
+xclip -sel c -o | sed -e 's/^\+//g' | xclip -sel c
